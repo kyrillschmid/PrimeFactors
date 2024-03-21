@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.cfg
+src/prime_factors.egg-info/PKG-INFO
+src/prime_factors.egg-info/SOURCES.txt
+src/prime_factors.egg-info/dependency_links.txt
+src/prime_factors.egg-info/entry_points.txt
+src/prime_factors.egg-info/top_level.txt

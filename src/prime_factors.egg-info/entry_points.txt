@@ -1,0 +1,2 @@
+[console_scripts]
+prime-factors = prime_factors.__main__:main

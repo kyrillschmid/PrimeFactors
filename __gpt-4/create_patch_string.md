@@ -1,0 +1,3 @@
+{
+  "patch_string": "diff --git a/src/prime_factors/primes.py b/src/prime_factors/primes.py\nindex e69de29..d73ff00 100644\n--- a/src/prime_factors/primes.py\n+++ b/src/prime_factors/primes.py\n@@ -0,0 +1,12 @@\n+def generate(n: int):\n+    i = 2\n+    factors = []\n+    while i * i <= n:\n+        if n % i:\n+            i += 1\n+        else:\n+            n //= i\n+            factors.append(i)\n+    if n > 1:\n+        factors.append(n)\n+    return factors\n"
+}
