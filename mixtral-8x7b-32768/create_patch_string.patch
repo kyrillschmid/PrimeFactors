@@ -1,0 +1,17 @@
+--- a/prime_factors/primes.py
++++ b/prime_factors/primes.py
+@@ -1,7 +1,13 @@
+ def generate(n: int):
+-   return []
++
++"""
+Generates prime factors of the given number.
+ 
+    :param n: The number to factorize.
+
+    :return: A list of prime numbers that are factors of the given number.
+"""
+     if n < 2:
+         return []
+     factors = []
+ 

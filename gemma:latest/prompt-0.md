@@ -9,17 +9,7 @@ Code Base: src/
     prime_factors/
         primes.py
             1: def generate(n: int):
-            2:     i = 2
-            3:     factors = []
-            4:     while i * i <= n:
-            5:         if n % i:
-            6:             i += 1
-            7:         else:
-            8:             n //= i
-            9:             factors.append(i)
-            10:     if n > 1:
-            11:         factors.append(n)
-            12:     return factors
+            2:     return []
         __main__.py
         __pycache__/
             primes.cpython-312.pyc

@@ -12,9 +12,3 @@ COPY . /usr/src/app
 RUN pip install --upgrade pip
 RUN pip install pytest
 RUN pip install -e .
-
-# Apply the git patch if needed
-RUN git apply diff_patch.patch
-
-# Run pytest and save the output. Adjust the command if tests are in a different directory.
-CMD pytest > test_output.txt

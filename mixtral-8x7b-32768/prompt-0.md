@@ -1,11 +1,12 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings. Create a patch string based on the issue description. Please respond with your analysis directly in JSON format The JSON schema should include: {'patch_string': string (diff --git a/...)}.
+You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Please create a detailed implementation proposal for the described task and the following issue based on the provided code base.
-Code Base: src/
+Create a patch string based on the following issue description and the code base.
+Code Base:
+src/
     prime_factors/
         primes.py
             1: def generate(n: int):
@@ -52,29 +53,6 @@ tests/
     __pycache__/
         main_test.cpython-312-pytest-8.0.2.pyc
 
-Issue: Implement prime factorization of a given number
+Issue:
+Implement prime factorization of a given number
 
-Affected files: {
-  "file": "src/prime_factors/primes.py"
-}
-Lines to be changed: {
-  "file": "src/prime_factors/primes.py",
-  "lines_to_be_changed_in_original_and_changed_file": [
-    "@@ -1,2 +1,10 @@",
-    "-    return []",
-    "+    factors = []",
-    "+    divisor = 2",
-    "+    while divisor ** 2 <= n:",
-    "+        while n % divisor == 0:",
-    "+            factors.append(divisor)",
-    "+            n //= divisor",
-    "+        divisor += 1",
-    "+    if n > 1:",
-    "+        factors.append(n)",
-    "+    return factors"
-  ]
-}
-Code snippets for changes: {
-  "file": "src/prime_factors/primes.py",
-  "code_snippet": "def generate(n: int):\n    factors = []\n    divisor = 2\n    while divisor ** 2 <= n:\n        while n % divisor == 0:\n            factors.append(divisor)\n            n //= divisor\n        divisor += 1\n    if n > 1:\n        factors.append(n)\n    return factors"
-}

@@ -62,17 +62,15 @@ Lines to be changed: {
   "lines_to_be_changed_in_original_and_changed_file": [
     "@@ -1,2 +1,10 @@",
     "-    return []",
-    "+    def generate(n: int):",
-    "+        i = 2",
-    "+        factors = []",
-    "+        while i * i <= n:",
-    "+            if n % i:",
-    "+                i += 1",
-    "+            else:",
-    "+                n //= i",
-    "+                factors.append(i)",
-    "+        if n > 1:",
-    "+            factors.append(n)",
-    "+        return factors"
+    "+    factors = []",
+    "+    divisor = 2",
+    "+    while divisor ** 2 <= n:",
+    "+        while n % divisor == 0:",
+    "+            factors.append(divisor)",
+    "+            n //= divisor",
+    "+        divisor += 1",
+    "+    if n > 1:",
+    "+        factors.append(n)",
+    "+    return factors"
   ]
 }

@@ -1,25 +1,16 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of detecting lines to be changed in files. Detect the lines that need to be changed in the files based on the issue description. Please respond with your analysis directly in JSON format The JSON schema should include: {'file': string (full path to file), 'lines_to_be_changed_in_original_and_changed_file': array of strings (@@ -1,2 +1,10 @@)}.
+You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Please create a detailed implementation proposal for the described task and the following issue based on the provided code base.
-Code Base: src/
+Create a patch string based on the following issue description and the code base.
+Code Base:
+src/
     prime_factors/
         primes.py
             1: def generate(n: int):
-            2:     i = 2
-            3:     factors = []
-            4:     while i * i <= n:
-            5:         if n % i:
-            6:             i += 1
-            7:         else:
-            8:             n //= i
-            9:             factors.append(i)
-            10:     if n > 1:
-            11:         factors.append(n)
-            12:     return factors
+            2:     return []
         __main__.py
         __pycache__/
             primes.cpython-312.pyc
@@ -61,9 +52,8 @@ tests/
         28:     assert generate(1773) == [3, 3, 197]
     __pycache__/
         main_test.cpython-312-pytest-8.0.2.pyc
+        main_test.cpython-312-pytest-8.1.1.pyc
 
-Issue: Implement prime factorization of a given number
+Issue:
+Implement prime factorization of a given number
 
-Affected files: {
-  "file": "src/prime_factors/primes.py"
-}

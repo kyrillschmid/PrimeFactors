@@ -1,3 +1,0 @@
-{
-  "file": "src/prime_factors/primes.py"
-}

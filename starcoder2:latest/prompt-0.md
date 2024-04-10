@@ -1,6 +1,6 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings. Create a patch string based on the issue description. Please respond with your analysis directly in JSON format The JSON schema should include: {'patch_string': string (diff --git a/...)}.
+You are an expert software engineer capable of listing files to be changed. Select the files that need to be changed based on the issue description. Please respond with your analysis directly in JSON format The JSON schema should include: {'file': string (full path to file)}.
 
 User Prompt:
 --------------
@@ -54,27 +54,3 @@ tests/
 
 Issue: Implement prime factorization of a given number
 
-Affected files: {
-  "file": "src/prime_factors/primes.py"
-}
-Lines to be changed: {
-  "file": "src/prime_factors/primes.py",
-  "lines_to_be_changed_in_original_and_changed_file": [
-    "@@ -1,2 +1,10 @@",
-    "-    return []",
-    "+    factors = []",
-    "+    divisor = 2",
-    "+    while divisor ** 2 <= n:",
-    "+        while n % divisor == 0:",
-    "+            factors.append(divisor)",
-    "+            n //= divisor",
-    "+        divisor += 1",
-    "+    if n > 1:",
-    "+        factors.append(n)",
-    "+    return factors"
-  ]
-}
-Code snippets for changes: {
-  "file": "src/prime_factors/primes.py",
-  "code_snippet": "def generate(n: int):\n    factors = []\n    divisor = 2\n    while divisor ** 2 <= n:\n        while n % divisor == 0:\n            factors.append(divisor)\n            n //= divisor\n        divisor += 1\n    if n > 1:\n        factors.append(n)\n    return factors"
-}
