@@ -1,0 +1,20 @@
+{
+  "file": "src/prime_factors/primes.py",
+  "lines_to_be_changed_in_original_and_changed_file": [
+    "@@ -1,2 +1,10 @@",
+    " def generate(n: int):",
+    "-    return []",
+    "+    if n < 2:",
+    "+        return []",
+    "+    factors = []",
+    "+    i = 2",
+    "+    while i * i <= n:",
+    "+        while (n % i) == 0:",
+    "+            factors.append(i)",
+    "+            n //= i",
+    "+        i += 1",
+    "+    if n > 1:",
+    "+        factors.append(n)",
+    "+    return factors"
+  ]
+}
