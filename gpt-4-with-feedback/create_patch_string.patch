@@ -1,0 +1,19 @@
+diff --git a/src/prime_factors/primes.py b/src/prime_factors/primes.py
+index e69de29..4b825dc 100644
+--- a/src/prime_factors/primes.py
++++ b/src/prime_factors/primes.py
+@@ -1,2 +1,14 @@
+ def generate(n: int):
+-    return []
++    if n < 2:
++        return []
++    factors = []
++    i = 2
++    while i * i <= n:
++        while (n % i) == 0:
++            factors.append(i)
++            n //= i
++        i += 1
++    if n > 1:
++        factors.append(n)
++    return factors
