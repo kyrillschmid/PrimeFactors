@@ -1,11 +1,15 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
+Act as a software engineering expert! Your job is to generate code based on an issue description to be implemented in a repo. Add line numbers in the code!.
+Please respond directly in the following JSON format: The JSON schema should include: {'file': string (full path to file), 'code_snippet': string (code snippet)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Create a patch string based on the following issue description and the code base.
-Code Base:
+Here is the issue description and the repo.
+Issue:
+Implement prime factorization of a given number
+
+Repo:
 src/
     prime_factors/
         primes.py
@@ -52,43 +56,5 @@ tests/
         28:     assert generate(1773) == [3, 3, 197]
     __pycache__/
         main_test.cpython-312-pytest-8.0.2.pyc
+        main_test.cpython-312-pytest-8.1.1.pyc
 
-Issue:
-Implement prime factorization of a given number
-
-Patch String from last suggestion:
-[-
- Diff: src/prime_factors/
-
- Index: prime_factors/primes.py
-
- ----
-+++ 
-@ -1,7 +1,7 @@
- # Define a function to generate the list of prime factors for a given number
-
--def generate(n: int):
-+def generate(n: int):
-
- if n <= 1:
-- return []
-+ return [1]
-
- # Loop through numbers from 2 up to the square root of n
- i = 2
- while i * i <= n:
-
- if n % i == 0:
- prime_factors.append(i)
- n //= i
- break
-
- i += 1
-
- # If n is a prime number, add it to the list of prime factors before returning
-+if n > 1:
- prime_factors.append(n)
-
- return prime_factors
-Feedback from execution environment:
-error: No valid patches in input (allow with "--allow-empty")

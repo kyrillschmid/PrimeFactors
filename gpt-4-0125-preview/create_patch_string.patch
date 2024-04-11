@@ -1,5 +1,5 @@
 diff --git a/src/prime_factors/primes.py b/src/prime_factors/primes.py
-index e69de29..4b825dc 100644
+index e69de29..8c73348 100644
 --- a/src/prime_factors/primes.py
 +++ b/src/prime_factors/primes.py
 @@ -1,2 +1,11 @@
@@ -15,4 +15,3 @@ index e69de29..4b825dc 100644
 +            n //= divisor
 +        divisor += 1
 +    return factors
-

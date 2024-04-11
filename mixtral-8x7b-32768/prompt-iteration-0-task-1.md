@@ -1,11 +1,15 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
+Act as a software engineering expert! Your job is to create patch strings for a given Python repository. Make sure to consider the line numbers in the patch!.
+Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Create a patch string based on the following issue description and the code base.
-Code Base:
+Here is the issue description and the repo.
+Issue:
+Implement prime factorization of a given number
+
+Repo:
 src/
     prime_factors/
         primes.py
@@ -54,6 +58,8 @@ tests/
         main_test.cpython-312-pytest-8.0.2.pyc
         main_test.cpython-312-pytest-8.1.1.pyc
 
-Issue:
-Implement prime factorization of a given number
-
+Here is the output from a previous task that might be useful:
+Code snippets for changes: {
+        "file": "src/prime_factors/primes.py",
+        "code_snippet": "def generate(n: int):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors"
+    }

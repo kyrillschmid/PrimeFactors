@@ -1,11 +1,15 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
+Act as a software engineering expert! Your job is to generate code based on an issue description to be implemented in a repo. Add line numbers in the code!.
+Please respond directly in the following JSON format: The JSON schema should include: {'file': string (full path to file), 'code_snippet': string (code snippet)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Create a patch string based on the following issue description and the code base.
-Code Base:
+Here is the issue description and the repo.
+Issue:
+Implement prime factorization of a given number
+
+Repo:
 src/
     prime_factors/
         primes.py
@@ -52,7 +56,5 @@ tests/
         28:     assert generate(1773) == [3, 3, 197]
     __pycache__/
         main_test.cpython-312-pytest-8.0.2.pyc
-
-Issue:
-Implement prime factorization of a given number
+        main_test.cpython-312-pytest-8.1.1.pyc
 

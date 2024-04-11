@@ -1,0 +1,1 @@
+{"file": "src/prime_factors/primes.py", "code_snippet": "1: def generate(n: int):\n2:     if n == 1:\n3:         return []\n4:     factors = []\n5:     divisor = 2\n6:     while n > 1:\n7:         while n % divisor == 0:\n8:             factors.append(divisor)\n9:             n //= divisor\n10:         divisor += 1\n11:     return factors"}

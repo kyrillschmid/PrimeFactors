@@ -1,11 +1,15 @@
 System Prompt:
 ----------------
-You are an expert software engineer capable of creating patch strings to solve issues in a Python repository.Imagine that you have an executation environment with a Python interpreter from which you will receive feedback from your last patch string suggestion.Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
+Act as a software engineering expert! Your job is to create patch strings for a given Python repository. Make sure to consider the line numbers in the patch!.
+Please respond directly in the following JSON format: The JSON schema should include: {'patch_string': string (diff --git a/...)}. Provide nothing but the JSON output.
 
 User Prompt:
 --------------
-Create a patch string based on the following issue description and the code base.
-Code Base:
+Here is the issue description and the repo.
+Issue:
+Implement prime factorization of a given number
+
+Repo:
 src/
     prime_factors/
         primes.py
@@ -52,29 +56,10 @@ tests/
         28:     assert generate(1773) == [3, 3, 197]
     __pycache__/
         main_test.cpython-312-pytest-8.0.2.pyc
+        main_test.cpython-312-pytest-8.1.1.pyc
 
-Issue:
-Implement prime factorization of a given number
-
-Patch String from last suggestion:
---- a/prime_factors/primes.py
-+++ b/prime_factors/primes.py
-@@ -1,7 +1,13 @@
- def generate(n: int):
--    return []
-+
-+"""
-+Generates prime factors of the given number.
-+"
-+
-+
-+    :param n: The number to factorize.
-+
-+    :return: A list of prime numbers that are factors of the given number.
-+"
-     if n < 2:
-         return []
-     factors = []
- 
-Feedback from execution environment:
-error: corrupt patch at line 20
+Here is the output from a previous task that might be useful:
+Code snippets for changes: {
+"file": "src/prime_factors/primes.py",
+"code_snippet": "[1]\n1: def is_prime(n: int) -> bool:\n2: if n <= 1:\n3: return False\n4: for i in range(2, int(n**0.5)+1):\n5: if n % i == 0:\n6: return False\n7: return True\n\n8: def generate(n: int):\n9: prime_factors = [1]\n10: prime = 2\n11: while len(prime_factors) * prime <= n:\n12: if is_prime(prime) and n % prime == 0:\n13: prime_factors.append(prime)\n14: prime *= is_prime(prime + 1)\n15: return prime_factors"
+}

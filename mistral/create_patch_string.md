@@ -1,1 +1,17 @@
-{"patch_string": ["diff --git a/prime_factors/primes.py b/prime_factors/primes.py\n", "index 3f0e62a..5b91e48 100644\n", "--- a/prime_factors/primes.py\n", "+++ b/prime_factors/primes.py\n", " @@ -1,7 +1,7 @@\n", " def generate(n: int):\n", " + import math\n", " \tresult = [1]\n", " \twhile n % 2 == 0:\n", " \tm.append(2)\n", " \tn //= 2\n", " \tif n % 2 != 0:\n", " \tm.extend(prime_factors(int(math.sqrt(n))+1))\n", " \tn = n // (m[-1] ** 2)\n", " \tm.append(n)\n", " return m\n"]}
+{"patch_string": "[-a, +b]\n+\n1: def generate(n: int):\n2: prime_factors = [1]\n3: prime = 2\n4: p = 0\n5: while prime * prime <= n:\n6: if n % prime == 0:\n7: prime_factors.append(prime)\n8: p += 1\n9: n //= prime\n10: prime = int(n**0.5) + 1\n11: while prime > 2 and n % prime != 0:\n12: prime -= 1\n13: if prime <= 1:\n14: break\n15: prime_factors.append(prime)\n16: n //= prime\n17: prime = int(n**0.5) + 1\n18: return prime_factors"}
+
+  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
